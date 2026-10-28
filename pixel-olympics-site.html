@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pixel Olympics 2026 – 17 events, 15 countries, one sore tapping finger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff6e0;--ink:#16163a;--muted:#555a80;--card:#ffffff;--line:#16163a;--sky:#3fa7f0;--gold:#f7c52b;--red:#e8333a;--green:#18a05a;--band:#16163a;--bandink:#fff6e0;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1030;--ink:#f4f1ff;--muted:#a3a8d6;--card:#171b4a;--line:#000;--band:#f7c52b;--bandink:#16163a}}
+:root[data-theme="dark"]{--bg:#0d1030;--ink:#f4f1ff;--muted:#a3a8d6;--card:#171b4a;--line:#000;--band:#f7c52b;--bandink:#16163a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Outfit,system-ui,sans-serif;font-size:18px;line-height:1.55;overflow-x:hidden}
+.px{font-family:"Press Start 2P",ui-monospace,Menlo,monospace;line-height:1.35;font-weight:400}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+/* hero */
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;background:#3fa7f0;overflow:hidden;border-bottom:6px solid var(--line)}
+#hero{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,50,.05) 0%,rgba(10,12,50,.15) 40%,rgba(10,12,50,.88) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:48px;padding-top:120px}
+.badge{display:inline-block;background:var(--gold);color:#16163a;padding:8px 12px;font-size:10px;box-shadow:4px 4px 0 #000;margin-bottom:22px;transform:rotate(-1.5deg)}
+h1{font-size:clamp(26px,6.4vw,64px);margin:0 0 18px;color:#fff;text-shadow:4px 4px 0 #000,-2px -2px 0 #e8333a}
+.hero p{color:#fff;font-size:clamp(18px,2.4vw,24px);max-width:36ch;margin:0 0 28px;text-shadow:0 2px 0 rgba(0,0,0,.6)}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:"Press Start 2P",monospace;font-size:13px;padding:18px 22px;color:#fff;background:var(--red);text-decoration:none;box-shadow:inset -4px -4px 0 rgba(0,0,0,.3),inset 4px 4px 0 rgba(255,255,255,.35),0 0 0 4px #000,8px 8px 0 4px #000;transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translate(-2px,-2px)}.btn:active{transform:translate(4px,4px);box-shadow:inset -4px -4px 0 rgba(0,0,0,.3),inset 4px 4px 0 rgba(255,255,255,.35),0 0 0 4px #000,2px 2px 0 4px #000}
+.btn.alt{background:#2a5bd0}
+/* marquee */
+.mq{background:var(--band);color:var(--bandink);overflow:hidden;white-space:nowrap;border-bottom:6px solid var(--line);padding:14px 0;font-size:12px}
+.mq div{display:inline-block;animation:mq 38s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:84px 0}
+h2{font-size:clamp(16px,3.2vw,30px);margin:0 0 18px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 36px;font-size:20px}
+/* demo cabinet */
+.cab{background:#16163a;padding:14px;box-shadow:0 0 0 4px #000,10px 10px 0 4px #000;position:relative}
+.cab:before{content:"";position:absolute;left:14px;right:14px;top:14px;aspect-ratio:16/9;box-shadow:inset 0 0 40px rgba(0,0,0,.5);pointer-events:none;z-index:3}
+#demo{width:100%;height:auto;aspect-ratio:16/9}
+.dh{position:absolute;left:14px;right:14px;top:14px;display:flex;justify-content:space-between;padding:12px 16px;color:#fff;font-size:clamp(7px,1.5vw,13px);text-shadow:2px 2px 0 #000;z-index:2;pointer-events:none}
+.dh b{color:var(--gold);font-weight:400}
+.tap{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);z-index:2;color:#fff;font-size:clamp(9px,2vw,18px);text-shadow:3px 3px 0 #000;animation:tp .16s steps(2) infinite;pointer-events:none}
+@keyframes tp{50%{transform:translateX(-50%) scale(1.14)}}
+.res{position:absolute;inset:14px;z-index:4;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(10,12,50,.78);color:#fff;text-align:center;padding:12px}
+.res h3{margin:0;font-size:clamp(12px,3vw,26px);color:var(--gold);text-shadow:3px 3px 0 #000}
+.res table{font-size:clamp(7px,1.5vw,12px);border-collapse:collapse;text-align:left}.res td{padding:3px 10px}.res tr.me{background:rgba(247,197,43,.3)}
+.res button{font-size:clamp(8px,1.6vw,12px);margin-top:6px}
+button.rp{font-family:"Press Start 2P",monospace;color:#fff;background:#2a5bd0;border:0;padding:12px 16px;cursor:pointer;box-shadow:inset -3px -3px 0 rgba(0,0,0,.3),inset 3px 3px 0 rgba(255,255,255,.35),0 0 0 3px #000}
+.note{font-size:15px;color:var(--muted);margin-top:18px}
+/* events */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:26px}
+.ev{background:var(--card);box-shadow:0 0 0 4px var(--line),7px 7px 0 4px var(--line);padding:10px 10px 18px;transition:transform .15s}
+.ev:hover{transform:translateY(-6px) rotate(-.6deg)}
+.ev canvas{width:100%;height:auto;aspect-ratio:96/54;margin-bottom:14px}
+.ev h3{font-size:11px;margin:0 0 8px;padding:0 6px}.ev p{margin:0;padding:0 6px;font-size:16px;color:var(--muted);line-height:1.45}
+.more{margin-top:34px;font-size:18px}.more b{background:var(--gold);color:#16163a;padding:2px 8px}
+/* world */
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:start}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.flags{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+.flags div{text-align:center;font-size:8px}.flags canvas{width:100%;height:auto;aspect-ratio:3/2;box-shadow:0 0 0 3px var(--line);margin-bottom:8px}
+.tbl{background:var(--card);box-shadow:0 0 0 4px var(--line),7px 7px 0 4px var(--line);padding:18px}
+.tbl h3{margin:0 0 14px;font-size:11px}.tbl table{width:100%;border-collapse:collapse;font-size:16px}.tbl td{padding:7px 6px;border-bottom:2px dashed rgba(128,128,160,.35)}
+.tbl tr.you td{background:rgba(247,197,43,.35);font-weight:800}
+.dot{display:inline-block;width:12px;height:12px;margin-right:4px;vertical-align:-1px}
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.shop div{background:var(--card);box-shadow:0 0 0 3px var(--line);padding:10px 12px;font-size:15px;line-height:1.3}.shop b{display:block;font-size:9px;font-family:"Press Start 2P",monospace;margin-bottom:6px}.shop span{color:var(--red);font-weight:800}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.steps div{counter-increment:s;padding-top:6px}.steps div:before{content:counter(s);display:grid;place-items:center;width:52px;height:52px;background:var(--red);color:#fff;font-family:"Press Start 2P",monospace;font-size:20px;box-shadow:4px 4px 0 #000;margin-bottom:16px}
+.steps h3{margin:0 0 6px;font-size:22px}.steps p{margin:0;color:var(--muted)}
+/* cta */
+.cta{background:var(--red);color:#fff;text-align:center;padding:90px 20px;border-top:6px solid var(--line);position:relative;overflow:hidden}
+.cta h2{color:#fff;text-shadow:4px 4px 0 #000;font-size:clamp(16px,3.6vw,34px);max-width:22em;margin:0 auto 30px}
+.cta .btn{background:var(--gold);color:#16163a}
+footer{padding:30px 20px;text-align:center;color:var(--muted);font-size:15px}
+@media(prefers-reduced-motion:reduce){.mq div,.tap{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <canvas id="hero" width="320" height="180"></canvas>
+  <div class="wrap">
+    <span class="badge px">FREE · IN YOUR BROWSER</span>
+    <h1 class="px">PIXEL<br>OLYMPICS<br>2026</h1>
+    <p>Seventeen events. Fifteen countries. One seriously sore tapping finger.</p>
+    <div class="btns"><a class="btn" href="https://claude.ai/artifact/QfhrrC1BHJaELMuP4tHB7D" target="_blank" rel="noopener">Play now</a><a class="btn alt" href="#demo-sec">Watch a race</a></div>
+  </div>
+</header>
+<div class="mq px"><div id="mq"></div></div>
+
+<section id="demo-sec"><div class="wrap">
+  <h2 class="px">Here’s a 100m, start to finish</h2>
+  <p class="lead">Tap faster, run faster. That’s the entire rulebook for the sprint. Everything after that is bragging rights.</p>
+  <div class="cab">
+    <canvas id="demo" width="320" height="180"></canvas>
+    <div class="dh px"><span id="dEv">100M SPRINT</span><span>TIME <b id="dT">0.00</b></span><span>TAPS <b id="dK">0</b></span></div>
+    <div class="tap px" id="dTap">TAP! TAP! TAP!</div>
+    <div class="res" id="dRes"><h3 class="px">GOLD!</h3><table id="dTab"></table><button class="rp" id="rp">Watch again</button></div>
+  </div>
+  <p class="note">That’s a recording of the real thing, not a mock-up. In the game you do the tapping.</p>
+</div></section>
+
+<section style="background:rgba(63,167,240,.12)"><div class="wrap">
+  <h2 class="px">Seventeen ways to win a medal</h2>
+  <p class="lead">Every event takes about a minute. Some are about speed, some are about timing, and a couple are about not panicking when the wind changes.</p>
+  <div class="grid" id="evs"></div>
+  <p class="more">…plus <b>100m sprint</b>, <b>50m freestyle</b>, <b>long jump</b>, <b>shot put</b>, <b>discus</b>, <b>track cycling</b>, <b>kayak sprint</b>, <b>canoe slalom</b> and <b>downhill skiing</b>.</p>
+</div></section>
+
+<section><div class="wrap two">
+  <div>
+    <h2 class="px">Pick a flag. Race the world.</h2>
+    <p class="lead" style="margin-bottom:0">You choose the country you’re representing, and it follows you everywhere: the medal table, the results board, the podium. Your rivals come from all over, and a few of them are real-life athletes you’ll probably recognise. Beat them and your country climbs.</p>
+    <div class="flags" id="flags"></div>
+    <p class="lead" style="margin:0">Win coins, spend them in the shop, come back stronger.</p>
+    <div class="shop">
+      <div><b>PRO SPIKES</b>+15% speed in races <span>60</span></div>
+      <div><b>POWER GLOVES</b>Bigger throws and lifts <span>60</span></div>
+      <div><b>STEADY HANDS</b>Less wobble, bigger hit area <span>60</span></div>
+      <div><b>LUCKY CHARM</b>+4% on every result <span>120</span></div>
+    </div>
+  </div>
+  <div class="tbl">
+    <h3 class="px">MEDAL TABLE · EXAMPLE</h3>
+    <table>
+      <tr><td>1</td><td id="f0"></td><td><i class="dot" style="background:#f7c52b"></i>4</td><td><i class="dot" style="background:#dfe5ee"></i>2</td><td><i class="dot" style="background:#d68e4e"></i>3</td></tr>
+      <tr class="you"><td>2</td><td id="f1"></td><td><i class="dot" style="background:#f7c52b"></i>3</td><td><i class="dot" style="background:#dfe5ee"></i>4</td><td><i class="dot" style="background:#d68e4e"></i>1</td></tr>
+      <tr><td>3</td><td id="f2"></td><td><i class="dot" style="background:#f7c52b"></i>2</td><td><i class="dot" style="background:#dfe5ee"></i>2</td><td><i class="dot" style="background:#d68e4e"></i>5</td></tr>
+      <tr><td>4</td><td id="f3"></td><td><i class="dot" style="background:#f7c52b"></i>1</td><td><i class="dot" style="background:#dfe5ee"></i>3</td><td><i class="dot" style="background:#d68e4e"></i>2</td></tr>
+    </table>
+    <p class="note" style="margin-bottom:0">Yours is the highlighted row. Climbing it is the fun part.</p>
+  </div>
+</div></section>
+
+<section style="background:rgba(247,197,43,.18)"><div class="wrap">
+  <h2 class="px">Ten seconds to the start line</h2>
+  <div class="steps">
+    <div><h3>Choose your country</h3><p>Type a name, tap a flag, done. No account, no email, no download.</p></div>
+    <div><h3>Pick any event</h3><p>Do them in whatever order you like. Start with the one you’re worst at, if you’re brave.</p></div>
+    <div><h3>Chase gold</h3><p>Medals earn coins, coins buy upgrades, and upgrades make the next medal easier. Probably.</p></div>
+  </div>
+</div></section>
+
+<div class="cta">
+  <h2 class="px">Think you can take gold? Go and find out.</h2>
+  <a class="btn" href="https://claude.ai/artifact/QfhrrC1BHJaELMuP4tHB7D" target="_blank" rel="noopener">Play Pixel Olympics</a>
+</div>
+<footer>Pixel Olympics 2026 · Works with mouse, keyboard or touch · Best played with a snack nearby</footer>
+
+<script>
+(()=>{
+"use strict";
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let g;const R=(x,y,w,h,c)=>{g.fillStyle=c;g.fillRect(Math.floor(x),Math.floor(y),w,h)};
+const disc=(cx,cy,r,c)=>{g.fillStyle=c;for(let dy=-r;dy<=r;dy++){const w=Math.floor(Math.sqrt(r*r-dy*dy+.5));g.fillRect(Math.floor(cx)-w,Math.floor(cy)+dy,2*w+1,1)}};
+const line=(x0,y0,x1,y1,c,th=1)=>{const n=Math.max(Math.abs(x1-x0),Math.abs(y1-y0),1);for(let i=0;i<=n;i++)R(x0+(x1-x0)*i/n,y0+(y1-y0)*i/n,th,th,c)};
+const ringO=(x,y,r,c)=>{for(let a=0;a<6.3;a+=.25)R(x+Math.cos(a)*r,y+Math.sin(a)*r,1,1,c)};
+const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)],cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const mk=(w,h)=>{const c=document.createElement("canvas");c.width=w;c.height=h;return c};
+function sky(y0,y1,cols,w=320){const n=cols.length,h=(y1-y0)/n;cols.forEach((col,i)=>{R(0,y0+i*h,w,Math.ceil(h),col);if(i<n-1)for(let x=0;x<w;x+=2)R(x+(i%2),y0+(i+1)*h-1,1,1,cols[i+1])})}
+const cloud=(x,y,s)=>[[0,2,10,3],[2,0,6,5],[6,1,8,4]].forEach(([a,b,w,h])=>R(x+a*s,y+b*s,w*s,h*s,"#fff"));
+function man(x,y,k,s,f,up){const sw=Math.round(Math.sin(f)*2);R(x-1+sw,y-5,2,5,"#222");R(x-1-sw,y-5,2,5,"#3a3a3a");R(x-2,y-10,5,5,k);R(x-2,y-10,5,1,"rgba(255,255,255,.4)");R(x-1,y-13,3,3,s);R(x-1,y-13,3,1,"#3a2a1a");R(x+2,y-9-(up?4:0),1,4,s);R(x-3,y-9,1,4,s)}
+function rings(x,y){[["#0a6fd8",0,0],["#111",8,0],["#e8333a",16,0],["#f7c52b",4,3],["#18a05a",12,3]].forEach(([c,dx,dy])=>ringO(x+dx,y+dy-1,3.4,c))}
+// stadium backdrop
+const bg=mk(320,180);{const o=g;g=bg.getContext("2d");sky(0,44,["#3fa7f0","#58b8f6","#74c8fa","#92d7fc","#b3e4fd"]);cloud(30,8,2);cloud(220,5,3);cloud(130,16,2);R(0,30,320,4,"#252a55");R(0,34,320,54,"#3a4075");for(let r=0;r<7;r++)R(0,41+r*7,320,1,"#2d3260");R(0,88,320,12,"#1a2466");for(let x=0;x<320;x+=16)R(x,90,8,3,"#243088");rings(24,93);rings(264,93);R(0,100,320,80,"#48ab47");g=o}
+const crowd=[];for(let r=0;r<7;r++)for(let x=1;x<320;x+=5)crowd.push({x,y:37+r*7,s:pick(["#f0b88a","#d89868","#8d5a3a","#ffd9b0"]),c:pick(["#e8333a","#fff","#3fa7f0","#f7c52b","#18a05a","#9b59d0"]),p:Math.random()*6});
+function drawCrowd(t,hype){for(const p of crowd){const b=hype?(Math.sin(t*10+p.p)>0?2:0):(Math.sin(t*3+p.p*3)>.93?1:0);R(p.x,p.y-b,3,3,p.s);R(p.x,p.y+3-b,3,3,p.c);if(hype&&b)R(p.x-1,p.y-1-b,1,2,p.s)}}
+// ---------- race scene
+const K=3.2,ST=1.8,RUN=[["#c8202f",9.92],["#f7c52b",9.84],["#1f6fb5",10.12],["#18a05a",10.0],["#fff",10.26],["#9b59d0",10.4],["#222",9.98]];
+const SK=["#f0b88a","#d89868","#8d5a3a","#f0b88a","#d89868","#ffd9b0","#8d5a3a"];
+let conf=[];
+function racePos(i,t,meT){const e=Math.max(0,t-ST),T=(i===3&&meT)?meT:RUN[i][1],p=e/T;return p<=1?100*Math.pow(p,1.08):100+(p-1)*26}
+function raceScene(t,meT){const pos=RUN.map((_,i)=>racePos(i,t,meT)),lead=Math.max(...pos),cam=Math.min(lead,98)*K-110;
+ g.drawImage(bg,0,0);const done=t-ST>(meT||9.8);drawCrowd(t,done);
+ R(0,98,320,82,"#b8472e");for(let i=0;i<7;i++)R(0,110+i*10-6,320,1,"#f2d8c8");
+ for(let m=0;m<=100;m+=10){const sx=m*K-cam;if(sx>-4&&sx<324){R(sx,98,1,82,m===0?"#fff":"rgba(0,0,0,.18)");if(m===100)for(let j=0;j<41;j++)R(sx,98+j*2,2,2,j%2?"#111":"#fff")}}
+ for(let i=0;i<7;i++){const y=110+i*10,sx=pos[i]*K-cam;if(sx<-12||sx>332)continue;const me=meT&&i===3;man(sx,y,me?"#f7c52b":RUN[i][0],SK[i],pos[i]*.9+t*8,done&&i===lead);if(me){R(sx-1,y-19,3,2,"#fff");R(sx-1,y-21,1,1,"#fff")}}
+ return{lead,done}}
+function confetti(dt,on){if(on&&conf.length<110)for(let i=0;i<4;i++)conf.push({x:rnd(0,320),y:rnd(-20,0),v:rnd(30,70),c:pick(["#e8333a","#f7c52b","#3fa7f0","#fff","#18a05a"])});
+ conf.forEach(c=>{c.y+=c.v*dt;c.x+=Math.sin(c.y*.1)*.4;R(c.x,c.y,2,2,c.c)});conf=conf.filter(c=>c.y<182)}
+// ---------- flags
+const FL={JPN:(u,v)=>(u-.5)*(u-.5)*2.25+(v-.5)*(v-.5)<.07?"#d8202f":"#fff",
+ BRA:(u,v)=>(u-.5)*(u-.5)*2.25+(v-.5)*(v-.5)<.04?"#1f3a93":Math.abs(u-.5)/.42+Math.abs(v-.5)/.4<1?"#f7c52b":"#1a9a4a",
+ SWE:(u,v)=>Math.abs(u-.36)<.07||Math.abs(v-.5)<.1?"#f7c52b":"#1f6fb5",
+ FRA:(u)=>u<.33?"#1f3a93":u<.66?"#fff":"#d8202f",ITA:(u)=>u<.33?"#1a8a3a":u<.66?"#fff":"#d8202f",
+ NOR:(u,v)=>Math.abs(u-.37)<.05||Math.abs(v-.5)<.07?"#1f3a93":Math.abs(u-.37)<.12||Math.abs(v-.5)<.14?"#fff":"#d8202f",
+ JAM:(u,v)=>{const x=Math.abs(u-.5)*1.5,y=Math.abs(v-.5);return Math.abs(x-y)<.07?"#f7c52b":y>x?"#1a8a3a":"#111"},
+ GER:(u,v)=>v<.33?"#111":v<.66?"#d8202f":"#f7c52b"};
+function flagCanvas(id,w=24,h=16){const c=mk(w,h),x=c.getContext("2d");for(let j=0;j<h;j++)for(let i=0;i<w;i++){x.fillStyle=FL[id]((i+.5)/w,(j+.5)/h);x.fillRect(i,j,1,1)}return c}
+// ---------- mini events (96x54)
+const D=(t,f)=>f;
+const MINI=[
+["Hurdles","You run, you jump. Clip a hurdle and it goes flying, and so does your time.",t=>{sky(0,38,["#58b8f6","#92d7fc","#b3e4fd"],96);cloud(8,6,1);cloud(60,12,1);R(0,38,96,16,"#b8472e");R(0,38,96,1,"#f2d8c8");let jy=0;
+ for(let i=0;i<3;i++){const hx=((i*44-t*50)%132+132)%132-20,u=cl((hx-8)/28,0,1);if(hx>8&&hx<36)jy=Math.max(jy,Math.sin(u*Math.PI)*10);const fell=hx<20&&i===1;if(fell)R(hx-2,46,8,2,"#e8333a");else{R(hx,38,1,8,"#ddd");R(hx-1,37,5,2,"#e8333a")}}
+ man(20,46-jy,"#e8333a","#f0b88a",t*14)}],
+["Archery","Hold to draw, let go, and hope the wind is on your side.",t=>{sky(0,40,["#58b8f6","#92d7fc","#b3e4fd"],96);R(0,40,96,14,"#48ab47");const c=t%6,n=Math.min(3,Math.floor(c/2)+(c%2>.35?1:0));
+ const cx=64,cy=26;for(let i=0;i<5;i++){disc(cx,cy,15-i*3,i%2?"#f2f2f2":["#e8333a","#222","#2f8fe8","#f7c52b"][Math.min(3,i)]);}disc(cx,cy,3,"#f7c52b");
+ R(cx-18,34,2,20,"#6b4423");R(cx+16,34,2,20,"#6b4423");
+ const sp=[[2,-3],[-5,4],[4,5]];for(let i=0;i<Math.min(n,3);i++)line(cx+sp[i][0],cy+sp[i][1],cx+sp[i][0]+5,cy+sp[i][1]+3,"#d9c9a0");
+ const f=(c%2)/.35;if(c%2<.35&&n<3){const u=f,sx=10+(cx+sp[n][0]-10)*u,sy=44+(cy+sp[n][1]-44)*u;line(sx-8,sy+4*(1-u),sx,sy,"#e6d7b0")}
+ const dr=cl((c%2)/1.6,0,1);for(let k=-10;k<=10;k++)R(8-(1-(k/10)**2)*3+dr*2,44+k,1,1,"#7a4a1e");line(6,34,8+dr*4,44,"#fff");line(6,54,8+dr*4,44,"#fff");
+ R(86,6,1,14,"#ddd");for(let i=0;i<8;i++)R(87+i*(Math.sin(t)>0?1:-1),7+Math.round(Math.sin(t*9-i)),1,3,i%2?"#fff":"#e8333a")}],
+["Skeet","Your shot takes a beat to land, so aim where the clay will be. Click right on it and you’ll miss.",t=>{sky(0,38,["#2f8fe8","#5fb5f6","#98d6fc"],96);cloud(10,10,1);cloud(55,4,1);R(0,38,96,16,"#48ab47");R(0,38,96,2,"#6aa57a");R(2,34,10,14,"#9aa0b3");R(84,34,10,14,"#9aa0b3");
+ const c=t%2.4,x=12+c*34,y=34-Math.sin(c/2.4*Math.PI)*24;
+ if(c<1.9){disc(x,y,2,"#ff7a1a");R(x-2,y+1,4,1,"#a54a0c");const ax=x+9,ay=y-1;ringO(ax,ay,4,"#ff4a4a");R(ax-6,ay,3,1,"#fff");R(ax+4,ay,3,1,"#fff")}
+ else{const u=(c-1.9)/.5;for(let i=0;i<10;i++){R(x+Math.cos(i*.63)*u*9,y+Math.sin(i*.63)*u*9+u*u*6,1,1,i%2?"#ffc27a":"#ff7a1a")}ringO(x,y,3+u*5,"#fff")}
+ line(60,54,48,44,"#15161c",3)}],
+["Weightlifting","Mash to pull, then nail the green zone to lock it overhead. Three lifts, each one heavier.",t=>{R(0,0,96,54,"#1a1840");for(let i=0;i<8;i++)R(0,i*7,96,1,"#221f55");R(0,44,96,10,"#6a4a2a");R(0,44,96,2,"#8a6a40");
+ const c=t%4,up=cl((c-1.2)/.7,0,1),dn=cl((c-3)/.5,0,1),h=up*(1-dn),bar=38-h*26,cr=h>.1&&h<.7?4:0;const x=48,hip=36+cr;
+ R(x-3,hip,2,44-hip,"#222");R(x+1,hip,2,44-hip,"#333");R(x-3,hip-9,7,9,"#e8333a");R(x-2,hip-14,5,5,"#f0b88a");R(x-5,Math.min(hip-8,bar),1,Math.abs(bar-hip+8),"#f0b88a");R(x+5,Math.min(hip-8,bar),1,Math.abs(bar-hip+8),"#f0b88a");
+ R(x-22,bar,44,1,"#ccc");for(const d of [-1,1]){R(x+d*19,bar-5,3,11,"#e8333a");R(x+d*16,bar-4,2,9,"#2a5bd0")}
+ for(let i=0;i<3;i++)disc(34+i*14,6,3,i===0&&c>1.9||i===1&&c>2.2||i===2&&c>2.5?"#fff":"#333")}],
+["Diving","Jump, spin, and stop with your head pointing at the water. The judges are harsh. Splashes are free.",t=>{R(0,0,96,54,"#92d7fc");cloud(50,6,1);R(0,40,96,14,"#2aa6d6");R(0,39,96,2,"#e8eef8");R(8,12,10,28,"#9aa0b3");R(6,10,16,2,"#e0e4ee");
+ const c=t%3.2,u=cl(c/2,0,1);if(c<2){const x=16+u*20,y=10+(u*u)*30+Math.sin(u*3.14)*-8,r=c*5.2,hx=x+Math.sin(r)*3,hy=y-Math.cos(r)*3;line(hx,hy,x*2-hx,y*2-hy,"#e8333a",2);disc(hx,hy,1,"#f0b88a")}
+ else{const w=(c-2)/1.2;ringO(36,41,w*10,"#fff");ringO(36,41,w*6,"#fff");for(let i=0;i<8;i++)R(36+Math.cos(i)*w*8,41-Math.abs(Math.sin(i*2))*w*(1-w)*40,1,1,"#fff")}}],
+["Ski slalom","Weave through the red and blue gates. Miss one and the clock punishes you.",t=>{R(0,0,96,54,"#eef4ff");for(let i=0;i<6;i++){const yy=((i*10+t*30)%64)-6;R(0,yy,96,1,"#dbe6fa")}
+ for(let i=0;i<4;i++){const yy=((i*18+t*30)%78)-8,cx=48+Math.sin(i*2.3)*16;for(const d of [-1,1]){const px=cx+d*9;R(px,yy-6,1,6,i%2?"#e8333a":"#2a5bd0");R(px-1,yy-7,3,1,"#fff")}}
+ const x=48+Math.sin(t*1.5)*17;R(x-2,38,1,8,"#222");R(x+1,38,1,8,"#222");R(x-1,40,3,4,"#e8333a");disc(x,38,1,"#f0b88a");for(let i=0;i<8;i++)R(48+Math.sin((t-i*.06)*1.5)*17,46+i,1,1,"#b0c4e8")}],
+["Rowing","Rhythm beats mashing. Hit the green on every stroke and the boat flies.",t=>{R(0,0,96,54,"#2aa6d6");for(let i=0;i<14;i++)R(((i*17-t*40)%110+110)%110-8,8+i*3.2,6,1,"rgba(255,255,255,.4)");
+ for(const [y,k,sp,off] of [[16,"#f7c52b",.96,0],[28,"#e8333a",1,20],[40,"#fff",.9,10]]){const x=20+((t*sp*24)%90),ph=Math.sin(t*6.6+y);R(x-9,y,18,3,k);R(x-2,y-5,3,3,"#f0b88a");R(x-3,y-3,5,3,k);line(x,y-1,x+ph*7,y-8,"#d9c9a0");line(x,y+1,x+ph*7,y+9,"#d9c9a0");R(x-12,y+4,22,1,"rgba(255,255,255,.5)")}}],
+["Javelin","Two clicks: power, then angle. Looks easy. It really isn’t.",t=>{sky(0,36,["#58b8f6","#92d7fc","#b3e4fd"],96);R(0,36,96,18,"#3d9a3e");for(let m=0;m<9;m++)R(10+m*9,36,1,18,"rgba(255,255,255,.35)");
+ const c=t%3.6,u=cl((c-.8)/1.6,0,1);man(10,46,"#2a5bd0","#f0b88a",0,c<.9);
+ if(c>.8){const x=14+u*64,y=40-Math.sin(u*Math.PI)*28,tl=(2*u-1);line(x-5,y+tl*-2,x+5,y+tl*3,"#e8e8e8");R(x+5,y+tl*3,2,1,"#e8333a");if(u>=1){R(x+2,42,1,8,"#e8333a");R(x+2,42,4,2,"#e8333a")}}}]
+];
+// ---------- build DOM bits
+document.getElementById("mq").textContent=Array(2).fill("100M SPRINT ★ HURDLES ★ SWIMMING ★ ROWING ★ LONG JUMP ★ JAVELIN ★ SHOT PUT ★ DISCUS ★ WEIGHTLIFTING ★ ARCHERY ★ SKEET ★ CYCLING ★ KAYAK ★ CANOE SLALOM ★ DOWNHILL ★ SKI SLALOM ★ DIVING ★ ").join("");
+const evs=document.getElementById("evs"),minis=[];
+MINI.forEach(([n,d,fn])=>{const el=document.createElement("div");el.className="ev";const c=mk(96,54);el.appendChild(c);el.insertAdjacentHTML("beforeend","<h3 class='px'>"+n.toUpperCase()+"</h3><p>"+d+"</p>");evs.appendChild(el);minis.push({c,fn,ctx:c.getContext("2d"),vis:false})});
+const io=new IntersectionObserver(es=>es.forEach(e=>{const m=minis.find(x=>x.c===e.target);if(m)m.vis=e.isIntersecting}),{rootMargin:"60px"});minis.forEach(m=>io.observe(m.c));
+const fl=document.getElementById("flags");["JPN","BRA","SWE","FRA","ITA","NOR","JAM","GER"].forEach(id=>{const d=document.createElement("div"),c=flagCanvas(id);d.appendChild(c);d.insertAdjacentHTML("beforeend","<span class='px'>"+id+"</span>");fl.appendChild(d)});
+[["f0","JAM","Jamaica"],["f1","SWE","Your country"],["f2","NOR","Norway"],["f3","BRA","Brazil"]].forEach(([id,f,n])=>{const c=flagCanvas(f,24,16);c.style.cssText="width:30px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;box-shadow:0 0 0 2px #16163a";document.getElementById(id).append(c,n)});
+// ---------- demo wiring
+const dc=document.getElementById("demo"),dg=dc.getContext("2d"),hc=document.getElementById("hero"),hg=hc.getContext("2d");
+const ME=9.71,LOOP=ME+ST+5.5;let dt0=0,dvis=false,shown=false;
+new IntersectionObserver(e=>{dvis=e[0].isIntersecting;if(dvis&&!shown)dt0=performance.now()/1000;},{threshold:.3}).observe(dc);
+document.getElementById("rp").onclick=()=>{dt0=performance.now()/1000;conf=[];document.getElementById("dRes").style.display="none";shown=false};
+function resTable(){const rows=RUN.map((r,i)=>({n:i===3?"YOU":["Rival A","Rival B","Rival C","","Rival D","Rival E","Rival F"][i],T:i===3?ME:r[1],me:i===3,i})).sort((a,b)=>a.T-b.T);
+ document.getElementById("dTab").innerHTML=rows.slice(0,4).map((r,i)=>"<tr class='"+(r.me?"me":"")+"'><td>"+(i+1)+"</td><td>"+r.n+"</td><td>"+r.T.toFixed(2)+"s</td></tr>").join("")}
+resTable();
+let last=performance.now()/1000,heroT=0;
+function frame(){const now=performance.now()/1000,dt=Math.min(.05,now-last);last=now;
+ // hero
+ heroT+=dt;g=hg;const ht=RM?7:(heroT%13);raceScene(ht,null);confetti(dt,!RM&&ht>ST+9.9);
+ // demo
+ if(dvis||RM){g=dg;const t=RM?8:((now-dt0)%LOOP),e=Math.max(0,t-ST),out=raceScene(t,ME);
+  document.getElementById("dT").textContent=Math.min(e,ME).toFixed(2);document.getElementById("dK").textContent=Math.floor(Math.min(e,ME)*6.3);
+  document.getElementById("dTap").style.display=(e>0&&e<ME)?"block":"none";
+  if(t<ST){R(0,0,0,0,"#000");g.fillStyle="rgba(0,0,0,.35)";g.fillRect(0,0,320,180);g.font="12px 'Press Start 2P',monospace";g.fillStyle="#fff";g.textAlign="center";g.fillText(t<.9?"ON YOUR MARKS":"SET...",160,92)}
+  else if(e<.5){g.fillStyle="#fff";g.fillRect(0,0,320,180*0);g.font="14px 'Press Start 2P',monospace";g.textAlign="center";g.fillStyle="#f7c52b";g.fillText("GO!",160,60)}
+  confetti(dt,out.done);document.getElementById("dRes").style.display=(e>ME+1.2)?"flex":"none";document.getElementById("dEv").textContent=e>ME?"GOLD MEDAL!":"100M SPRINT";shown=true}
+ // minis
+ minis.forEach(m=>{if(m.vis||RM){g=m.ctx;try{m.fn(RM?2.2:now)}catch(err){}}});
+ if(!RM)requestAnimationFrame(frame)}
+frame();if(RM)setTimeout(frame,400);
+})();
+</script>
+</body>
+</html>
